@@ -186,10 +186,10 @@ class Code128Auto extends AbstractBarcode implements BarcodeInterface
         for ($i = 0; $i <= 31; $i++) {
             $keys_a .= chr($i);
         }
-        $startid = '';
         // ASCII characters for code B (ASCII 32 - 127)
         $keys_b = self::$dict_b . chr(127);
 
+        $startid = '';
         // array of symbols
         $code_data = [];
         // length of the code
