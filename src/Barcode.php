@@ -23,6 +23,7 @@ class Barcode
 	 * @param float $pr
 	 *
 	 * @return \Mpdf\Barcode\BarcodeInterface
+     * @throws Barcode\BarcodeException
 	 */
 	public function getBarcode($code, $type, $pr = 0.0)
 	{
@@ -90,7 +91,12 @@ class Barcode
 			case 'C128A': // CODE 128 A
 				return new Barcode\Code128($code, 'A');
 
-			case 'C128B': // CODE 128 B
+            case 'C128': // CODE 128 AUTO
+
+            case 'C128AUTO': // CODE 128 AUTO. This concat A and C. The create short barcode 128.
+                return new Barcode\Code128Auto($code, 'AUTO');
+
+            case 'C128B': // CODE 128 B
 				return new Barcode\Code128($code, 'B');
 
 			case 'C128C':  // CODE 128 C
